@@ -51,7 +51,7 @@ $(document).ready(function () {
 			//url: "https://floating-shore-25832.herokuapp.com/scrape",
 			//localhost url for getting waterlevel from Go server
 			//url: "http://localhost:3000/scrape",
-			url: "https://golangbridges.herokuapp.com/scrape",
+			url: "https://mighty-taiga-72232.herokuapp.com/scrape",
 
 
 			//if post request is successful -> do function with logic
