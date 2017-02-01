@@ -71,7 +71,7 @@ func main() {
 	// fmt.Println(os.Getenv("PORT"))
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = ":3000"
+		port = "3000"
 	}
 
 	//var port = ":3000"
@@ -84,5 +84,5 @@ func main() {
 		http.ServeFile(w, r, r.URL.Path[1:])
 	})
 
-	http.ListenAndServe(port, nil)
+	http.ListenAndServe(":"+port, nil)
 }
