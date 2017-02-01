@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Bridges SPb</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<!--    <script type="<javascript>" src="server.js"></script>-->
+	<script src="../public/js/jquery-3.1.1.min.js"></script>
+	<script src="../public/js/common.js"></script>
+	<link rel="stylesheet" href="../public/css/fonts.css" />
+	<link rel="stylesheet" href="../public/css/main2.css" />
+	<link rel="stylesheet" href="../public/css/checkboxes.css" />
+	<link rel="stylesheet" href="../public/css/tables.css" />
+<!--	<link rel="stylesheet" href="../public/css/media.css" />-->
+	<!--    <link rel="stylesheet" href="../public/css/button.css" />-->
+	<link rel="stylesheet" href="../public/bootstrap-3.3.7/js/bootstrap.min.js" />
+	<link rel="stylesheet" href="../public/bootstrap-3.3.7/css/bootstrap.min.css" />
+	<script>
+	</script>
+</head>
+
+<body>
+    <div class="bgline">
+	<div class="loader">
+
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+
+				<div class="logo_container">
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+
+	<!--
+    <header class="logo_holder">
+
+               <img class = "logo_image" src="../First_Try/img/bridge_logo.png" alt="My company name" />
+
+    </header>
+-->
+	<div class="body_bg container-fluid">
+		<div class="container-fluid">
+			<p class="greetings" style="font-size: 30px">Golang Version.
+				<br> Здесь вы можете узнать, под какими мостами в Санкт-Петербурге сможет проплыть ваше судно, капитан.</p>
+			<br></br>
+		</div>
+
+		<div class="container">
+			<div class="col-md-12">
+				<!-- onclick="selectOnlyThis(this.id), getValueOfChecked(this.id)"-->
+				<div class="checkboxes_ships">
+					<input class="chb" type="checkbox" id="Ship1" value="130" />
+					<label for="Ship1">Мойка</label>
+					<input class="chb" type="checkbox" id="Ship2" value="200" />
+					<label for="Ship2">Фонтанка</label>
+					<input class="chb" type="checkbox" id="Ship3" value="250" />
+					<label for="Ship3">Метеор</label>
+					<input class="chb" type="checkbox" id="Ship4" value="300" />
+					<label for="Ship4">Лебедь</label>
+				</div>
+			</div>
+		</div>
+
+		<p class="hint1">
+			1. Выберите тип судна.
+		</p>
+
+		<!--//action="http://localhost:8081/scrape"-->
+		<div class="button_holder">
+
+
+
+			<input type="submit" class="btn1 btn-primary1" id="button12" value="Узнать подходящие мосты">
+
+
+		</div>
+		<p class="hint2">2. Нажмите, чтобы увидеть таблицы с мостами.
+		</p>
+
+
+
+		<div id="response21">
+
+			<!--     div for displaying the respond from server   -->
+		</div>
+		<div class="container-fluid table_cont">
+			<div class="row-fluid">
+				<div class="col-sm-6 .dashboard-panel-6">
+
+
+					<h3 id="header1">Все мосты в базе</h3>
+					<div class="search_holder">
+					    <input type="text" id="search1" placeholder="Печатайте для поиска...">
+					</div>
+					
+					<div id="table1">
+					</div>
+
+				</div>
+				<div class="col-sm-6 dashboard-panel-6">
+
+
+					<h3 id="header2">Подходящие мосты</h3>
+					<div class="search_holder">
+					    <input type="text" id="search2" placeholder="Печатайте для поиска...">
+					</div>
+					
+					<div id="table2">
+					</div>
+
+				</div>
+
+
+			</div>
+		</div>
+
+
+
+	</div>
+
+
+</div>
+</body>
+
+</html>

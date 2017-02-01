@@ -1,0 +1,78 @@
+/* line 1, C:/Users/Egor/Desktop/Coding/Bridges_SPb/First_Try/public/scss/main.sass */
+body {
+  font-family: "Raleway", sans-serif;
+  min-width: 320px;
+}
+
+/* line 6, C:/Users/Egor/Desktop/Coding/Bridges_SPb/First_Try/public/scss/main.sass */
+.checkboxes_ships {
+  margin-top: 15%;
+  text-align: center;
+  font-size: 30px;
+}
+
+/* line 11, C:/Users/Egor/Desktop/Coding/Bridges_SPb/First_Try/public/scss/main.sass */
+.chb {
+  padding: 10px;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+}
+
+/* line 21, C:/Users/Egor/Desktop/Coding/Bridges_SPb/First_Try/public/scss/main.sass */
+.button_holder {
+  margin-top: 15%;
+  text-align: center;
+  width: 100%;
+}
+
+/* line 27, C:/Users/Egor/Desktop/Coding/Bridges_SPb/First_Try/public/scss/main.sass */
+#button12 {
+  border-radius: 50px;
+  margin: 0 auto;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 15px;
+  width: 200px;
+  height: 50px;
+  background-color: rgba(0, 255, 0, 0.37);
+  transition: background-color 0.3s ease;
+}
+
+/* line 37, C:/Users/Egor/Desktop/Coding/Bridges_SPb/First_Try/public/scss/main.sass */
+#button12:focus {
+  outline: 0 !important;
+}
+
+/* line 39, C:/Users/Egor/Desktop/Coding/Bridges_SPb/First_Try/public/scss/main.sass */
+#button12:hover {
+  background-color: rgba(25, 25, 159, 0.56);
+}
+
+/* line 43, C:/Users/Egor/Desktop/Coding/Bridges_SPb/First_Try/public/scss/main.sass */
+#header1 {
+  font-style: normal;
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+}
+
+/* line 50, C:/Users/Egor/Desktop/Coding/Bridges_SPb/First_Try/public/scss/main.sass */
+#header2 {
+  font-style: bold;
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+}
+
+/* line 56, C:/Users/Egor/Desktop/Coding/Bridges_SPb/First_Try/public/scss/main.sass */
+#all_bridges {
+  margin: 20;
+  text-align: center;
+  width: 100%;
+}
+
+/* line 61, C:/Users/Egor/Desktop/Coding/Bridges_SPb/First_Try/public/scss/main.sass */
+#all_bridges td {
+  border: 1px solid blue;
+}
+
+/*# sourceMappingURL=../css/main.map */
