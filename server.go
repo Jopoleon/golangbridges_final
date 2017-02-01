@@ -11,11 +11,11 @@ import (
 )
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
-	t, err := template.ParseFiles("views/index1.html")
+	t, err := template.ParseFiles("views/index1.ejs")
 	if err != nil {
 		fmt.Fprintf(w, err.Error())
 	}
-	t.ExecuteTemplate(w, "index1.html", nil)
+	t.ExecuteTemplate(w, "index1.ejs", nil)
 }
 func scraperHandler(w http.ResponseWriter, r *http.Request) {
 
@@ -62,13 +62,17 @@ func scraperHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	var port string
-	if os.Getenv("PORT") != "" {
-		port = os.Getenv("PORT")
-	} else {
+	// var port string
+	// if os.Getenv("PORT") != "" {
+	// 	port = os.Getenv("PORT")
+	// } else {
+	// 	port = ":3000"
+	// }
+	// fmt.Println(os.Getenv("PORT"))
+	port := os.Getenv("PORT")
+	if port == "" {
 		port = ":3000"
 	}
-	fmt.Println(os.Getenv("PORT"))
 
 	//var port = ":3000"
 	fmt.Println("Server started on port: ", port)
