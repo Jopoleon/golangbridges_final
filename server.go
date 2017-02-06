@@ -10,7 +10,7 @@ import (
 	"os"
 
 	"github.com/PuerkitoBio/goquery"
-	"gopkg.in/mgo.v2"
+	//"gopkg.in/mgo.v2"
 	//"gopkg.in/mgo.v2/bson"
 )
 
@@ -62,38 +62,27 @@ func ScraperHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	//log.Println("Data AFTER marshaling json: ", data)
 
-	session, err := mgo.Dial("localhost")
-	if err != nil {
-		panic(err)
-	}
-	// dataDB, err := bson.Marshal(mapShip)
+	// session, err := mgo.Dial("localhost")
 	// if err != nil {
 	// 	panic(err)
 	// }
 
-	// type Entry struct {
-	// 	Id         string `json:"id",bson:"_id,omitempty"`
-	// 	ResourceId int    `json:"resource_id,bson:"resource_id"`
-	// 	Word       string `json:"word",bson:"word"`
-	// 	Meaning    string `json:"meaning",bson:"meaning"`
-	// 	Example    string `json:"example",bson:"example"`
+	// type resBody struct {
+	// 	Waterlevel string `json:"waterlevel" bson:"waterlevel"`
+	// 	Time       string `json:"time" bson:"time"`
+	// 	ShipHight  string `json:"shipHight" bson:"shipHight"`
 	// }
-	type resBody struct {
-		Waterlevel string `json:"waterlevel" bson:"waterlevel"`
-		Time       string `json:"time" bson:"time"`
-		ShipHight  string `json:"shipHight" bson:"shipHight"`
-	}
 
-	shipDataCollection := session.DB("Bridges").C("bridgeRequests")
-	err = shipDataCollection.Insert(
-		&resBody{
-			Waterlevel: waterlevel_p,
-			Time:       time_p,
-			ShipHight:  shipHight_p})
-	if err != nil {
-		panic(err)
-	}
-	defer session.Close()
+	// shipDataCollection := session.DB("Bridges").C("bridgeRequests")
+	// err = shipDataCollection.Insert(
+	// 	&resBody{
+	// 		Waterlevel: waterlevel_p,
+	// 		Time:       time_p,
+	// 		ShipHight:  shipHight_p})
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// defer session.Close()
 
 	w.Header().Set("Content-Type", "application/json")
 	w.Write(data)
