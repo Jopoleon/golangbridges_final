@@ -31,7 +31,8 @@ $(document).ready(function () {
 		}
 	})
 });
-
+var currentUrl      = window.location.href
+//console.log(currentUrl)
 $(document).ready(function () {
 	// Note, that I'm adding the argument event to .click function. It made for Mozila Browser.
 	$("#button12").click(function (event) {
@@ -50,8 +51,8 @@ $(document).ready(function () {
 			//Node.js website API for getting waterlevel.
 			//url: "https://floating-shore-25832.herokuapp.com/scrape",
 			//localhost url for getting waterlevel from Go server
-			//url: "http://localhost:3000/scrape",
-			url: "https://mighty-taiga-72232.herokuapp.com/scrape",
+			url: currentUrl+"scrape",
+			//url: "https://mighty-taiga-72232.herokuapp.com/scrape",
 
 
 			//if post request is successful -> do function with logic
