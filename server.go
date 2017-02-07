@@ -10,11 +10,16 @@ import (
 	"os"
 
 	"github.com/PuerkitoBio/goquery"
-	//"gopkg.in/mgo.v2"
-	//"gopkg.in/mgo.v2/bson"
+	"gopkg.in/mgo.v2"
 )
 
-//var shipDataCollection *mgo.Collection
+var mongoUrl = "mongodb://egor_m:qwer1234@ds135029.mlab.com:35029/bridges_mlab"
+
+type resBody struct {
+	Waterlevel string `json:"waterlevel" bson:"waterlevel"`
+	Time       string `json:"time" bson:"time"`
+	ShipHight  string `json:"shipHight" bson:"shipHight"`
+}
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
 	t, err := template.ParseFiles("views/index1.ejs")
@@ -23,6 +28,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	t.ExecuteTemplate(w, "index1.ejs", nil)
 }
+
 func ScraperHandler(w http.ResponseWriter, r *http.Request) {
 	log.Println("Reqest from: ", r.Host, r.URL.Path)
 	url := "http://spun.fkpkzs.ru/Level/Gorny"
@@ -60,29 +66,22 @@ func ScraperHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	//log.Println("Data AFTER marshaling json: ", data)
 
-	// session, err := mgo.Dial("localhost")
-	// if err != nil {
-	// 	panic(err)
-	// }
+	session, err := mgo.Dial(mongoUrl)
+	if err != nil {
+		panic(err)
+	}
 
-	// type resBody struct {
-	// 	Waterlevel string `json:"waterlevel" bson:"waterlevel"`
-	// 	Time       string `json:"time" bson:"time"`
-	// 	ShipHight  string `json:"shipHight" bson:"shipHight"`
-	// }
-
-	// shipDataCollection := session.DB("Bridges").C("bridgeRequests")
-	// err = shipDataCollection.Insert(
-	// 	&resBody{
-	// 		Waterlevel: waterlevel_p,
-	// 		Time:       time_p,
-	// 		ShipHight:  shipHight_p})
-	// if err != nil {
-	// 	panic(err)
-	// }
-	// defer session.Close()
+	shipDataCollection := session.DB("bridges_mlab").C("bridgeRequests")
+	err = shipDataCollection.Insert(
+		&resBody{
+			Waterlevel: waterlevel_p,
+			Time:       time_p,
+			ShipHight:  shipHight_p})
+	if err != nil {
+		panic(err)
+	}
+	defer session.Close()
 
 	w.Header().Set("Content-Type", "application/json")
 	w.Write(data)
@@ -90,22 +89,14 @@ func ScraperHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	// var port string
-	// if os.Getenv("PORT") != "" {
-	// 	port = os.Getenv("PORT")
-	// } else {
-	// 	port = ":3000"
-	// }
-	// fmt.Println(os.Getenv("PORT"))
 
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "3000"
 	}
 
-	//var port = ":3000"
 	fmt.Println("Server started on port: ", port)
-	//fmt.Println("Server started on port: 3000")
+
 	http.HandleFunc("/", indexHandler)
 	http.HandleFunc("/scrape", ScraperHandler)
 
